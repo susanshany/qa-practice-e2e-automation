@@ -1,0 +1,10 @@
+{
+    "environments": {
+        "qa": {
+            "baseUrl": "https://qa-practice.netlify.app/bugs-form"
+        },
+        "staging": {
+            "baseUrl": "https://staging-practice.netlify.app/bugs-form"
+        }
+    }
+}

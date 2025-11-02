@@ -1,0 +1,159 @@
+{"testData":
+        [
+        {
+        "condition": " all valid fields with valid data",
+        "conditionType": "positive",
+        "firstName": "John",
+        "lastName": "Sam",
+        "phoneNumber": "123-456-7890",
+        "country": "Australia",
+        "emailAddress": "abc@gmail.com",
+        "password": "12345678",
+        "agreeToTerms": true
+        },
+        {
+        "condition": " all required fields with valid data",
+        "conditionType": "positive",
+        "firstName":"",
+        "lastName": "Doe",
+        "phoneNumber": "123-456-7890",
+        "country": "",
+        "emailAddress": "abc@gmail.com",
+        "password": "12345678",
+        "agreeToTerms": false
+        },
+        {
+        "condition": " mininum password length 7 characters",
+        "conditionType": "positive",
+        "firstName":"",
+        "lastName": "Doe",
+        "phoneNumber": "123-456-7890",
+        "country": "",
+        "emailAddress": "abc@gmail.com",
+        "password": "1234567",
+        "agreeToTerms": false
+        },
+        {
+        "condition": " maximum password length 11 characters",
+        "conditionType": "positive",
+        "firstName":"",
+        "lastName": "Doe",
+        "phoneNumber": "123-456-7890",
+        "country": "",
+        "emailAddress": "abc@gmail.com",
+        "password": "&'&/b6k@1~1T0mTJolp",
+        "agreeToTerms": false
+        },
+        {
+        "condition": " mininum phone number length 10 digits",
+        "conditionType": "positive",
+        "firstName":"",
+        "lastName": "Doe",
+        "phoneNumber": "123-456-7890",
+        "country": "",
+        "emailAddress": "abc@gmail.com",
+        "password": "1234567",
+        "agreeToTerms": false
+        },
+        {
+        "condition": " missing required field Last Name",
+        "conditionType": "negative",
+        "firstName":"",
+        "lastName": "",
+        "phoneNumber": "123-456-7890",
+        "country": "",
+        "emailAddress": "abc@gmail.com",
+        "password": "1234567",
+        "agreeToTerms": false
+        },
+        {
+        "condition": " missing required field Email Address",
+        "conditionType": "negative",
+        "firstName":"",
+        "lastName": "Sam",
+        "phoneNumber": "123-456-7890",
+        "country": "",
+        "emailAddress": "",
+        "password": "1234567",
+        "agreeToTerms": false
+        },
+        {
+        "condition": " missing required field Password",
+        "conditionType": "negative",
+        "firstName":"",
+        "lastName": "Sam",
+        "phoneNumber": "123-456-7890",
+        "country": "",
+        "emailAddress": "abc@gmail.com",
+        "password": "",
+        "agreeToTerms": false
+        },
+        {
+        "condition": " missing required field Phone Number",
+        "conditionType": "negative",
+        "firstName":"",
+        "lastName": "Sam",
+        "phoneNumber": "",
+        "country": "",
+        "emailAddress": "abc@gmail.com",
+        "password": "1234567",
+        "agreeToTerms": false
+        },
+        {
+        "condition": " invalid phone number with less than 10 digits (short)",
+        "conditionType": "invalidData",
+        "firstName": "Allen",
+        "lastName": "Doe",
+        "phoneNumber": "123-456-789",
+        "country": "Australia",
+        "emailAddress": "abc@gmail.com",
+        "password": "1234567",
+        "agreeToTerms": false
+        },
+        {
+        "condition": " invalid phone number with non digit characters",
+        "conditionType": "invalidData",
+        "firstName": "Allen",
+        "lastName": "Doe",
+        "phoneNumber": "abcdefghijk",
+        "country": "Australia",
+        "emailAddress": "abc@gmail.com",
+        "password": "1234567",
+        "agreeToTerms": false
+        },
+        {
+        "condition": " invalid email format",
+        "conditionType": "invalidData",
+        "firstName": "Allen",
+        "lastName": "Doe",
+        "phoneNumber": "1234567890",
+        "country": "Australia",
+        "emailAddress": "abc",
+        "password": "12345677",
+        "agreeToTerms": false
+        },
+        {
+        "condition": " invalid password with less than 7 characters",
+        "conditionType": "invalidData",
+        "firstName": "Allen",
+        "lastName": "Doe",
+        "phoneNumber": "123-456-7890",
+        "country": "Australia",
+        "emailAddress": "abc@gmail.com",
+        "password": "123456",
+        "agreeToTerms": false
+        },
+        {
+        "condition": " invalid password with greated than 19 characters",
+        "conditionType": "invalidData",
+        "firstName": "Allen",
+        "lastName": "Doe",
+        "phoneNumber": "123-456-7890",
+        "country": "Australia",
+        "emailAddress": "abc@gmail.com",
+        "password": "&'&/b6k@1~1T0mTJolpV",
+        "agreeToTerms": false
+        }
+        
+        
+        ]}

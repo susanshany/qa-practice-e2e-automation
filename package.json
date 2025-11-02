@@ -3,12 +3,24 @@
   "version": "1.0.0",
   "description": "QA practice e2e automation with Playwright using TypeScript",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "clean:reports": "rimraf allure-report allure-results && mkdirp allure-report allure-results",
+    "generate:reports": " allure generate ./allure-results --clean",
+    "open:reports": " allure open ./allure-report",
+    "pretest": "npm run clean:reports ",
+    "posttest": "npm run generate:reports && npm run open:reports",
+    "execute:script": "npx playwright test --project=chromium",
+    "test": "npm run execute:script || npm run posttest"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@playwright/test": "^1.56.1",
-    "@types/node": "^24.9.2"
+    "@types/node": "^24.9.2",
+    "allure-commandline": "^2.34.1",
+    "allure-playwright": "^3.4.2",
+    "mkdirp": "^3.0.1",
+    "rimraf": "^6.1.0"
   }
 }

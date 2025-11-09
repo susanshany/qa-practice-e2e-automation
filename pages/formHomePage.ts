@@ -1,6 +1,8 @@
 import { Locator, Page,expect } from '@playwright/test';
 import { HelperBase } from './helperBase';
+// FormHomePage class extending HelperBase for form interactions and validations
 export class FormHomePage extends HelperBase {
+    // Define locators and messages as class properties
     readonly pageHeader: Locator
     readonly firstNameLocator: Locator
     readonly lastNameLocator: Locator
@@ -22,6 +24,7 @@ export class FormHomePage extends HelperBase {
     readonly phoneNumberAlert: string
     readonly emailAlert: string
     readonly passwordAlert: string
+    // Initialize locators and messages in the constructor
     constructor(page: Page) {
         super(page);
         this.pageHeader = page.locator('h2');
@@ -48,48 +51,58 @@ export class FormHomePage extends HelperBase {
 
 
     }
+    // Methords to interact with the form and validate messages
     async enterFirstName(firstName: string) {
+        // Enter first name if provided
         if (firstName !== '') {
             await this.fillInputField(this.firstNameLocator, firstName);
         }
     }
     async enterLastName(lastName: string) {
+        // Enter last name if provided
         if (lastName !== '') {
             await this.fillInputField(this.lastNameLocator, lastName);
         }
     }
     async enterPhoneNumber(phoneNumber: string) {
+        // Enter phone number if provided
         if (phoneNumber !== ''){
             await this.fillInputField(this.phoneNumberLocator, phoneNumber);
         }
     }
     async selectCountry(country: string) {
+        // Select country from dropdown if provided
         if (country !== ''){
             await this.selectOptionFromDropdown(this.countryLocator, country);
         }
     }
     async enterEmailAddress(emailAddress: string) {
+        // Enter email address if provided
         if (emailAddress !== ''){
             await this.fillInputField(this.emailAddressLocator, emailAddress);
         }
     }
     async enterPassword(password: string) {
+        // Enter password if provided
         if (password !== ''){
             await this.fillInputField(this.passwordLocator, password);
         }
     }
     async checkAgreeToTerms(agreeToTerms: boolean) {
-        
+            // Check the agree to terms checkbox if true
             if (agreeToTerms===true) {
                 await this.clickOnElement(this.agreeToTermsLocator);
             }
     }
     async clickRegisterButton() {
+        // Click the register button to submit the form
         await this.clickOnElement(this.registertButtonLocator);
     }
     async validateFormHomePageLoaded() {
+        // Validate that the form home page is loaded by checking the header text
         await this.validatePageHeader('CHALLENGE - Spot the BUGS!', this.pageHeader);
     }
+    // Method to fill the form with provided data
     async fillForm(
         firstName: string, 
         lastName: string, 
@@ -108,6 +121,7 @@ export class FormHomePage extends HelperBase {
             await this.checkAgreeToTerms(agreeToTerms);
             await this.clickRegisterButton();
     }
+    // Method to validate the success or error messages after form submission
     async validateSuccessMassage(
         conditionType: string,
         firstName: string, 
@@ -117,7 +131,9 @@ export class FormHomePage extends HelperBase {
         emailAddress: string,
         password: string
         ) {
+            // Validate messages based on the condition type
             if (conditionType === 'positive') {
+                // Validate success message for positive condition
                 await expect(this.alertLocator).toHaveText(this.successMessage);
                 /*
                 await this.inputFieldAssertText(this.successDisplyFirstNameLocator, "First Name: "+firstName);
@@ -128,6 +144,7 @@ export class FormHomePage extends HelperBase {
                 */
         }
             else if (conditionType === 'negative') {
+                // Validate alert messages for negative condition
                 if (lastName === '') {
                     await this.validateAlertMessage(this.lastNameAlert, this.alertLocator);
                 }

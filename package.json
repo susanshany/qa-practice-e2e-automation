@@ -10,7 +10,9 @@
     "pretest": "npm run clean:reports ",
     "posttest": "npm run generate:reports && npm run open:reports",
     "execute:script": "npx playwright test --project=chromium",
-    "test": "npm run execute:script || npm run posttest"
+    "test": "npm run execute:script || npm run posttest",
+    "regression:test": "npx playwright test --project=chromium --grep '@Web'  || npm run posttest",
+    "smoke:test": "npx playwright test --project=chromium --grep @Smoke"
   },
   "keywords": [],
   "author": "",

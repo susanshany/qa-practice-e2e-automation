@@ -22,12 +22,18 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
+  reporter: [
+        ['list'], // Keep the default list reporter
+        //['html'], // Keep the default HTML reporter
+        ["line"],
+        ["allure-playwright"]
+    ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
-    /* Base URL to use in actions like `await page.goto('')`. */
-    // baseURL: 'http://localhost:3000',
-
+    //screenshot on failure and video recording
+    screenshot: 'only-on-failure',
+    //on /off
+    video: 'retain-on-failure',
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
   },
@@ -68,6 +74,13 @@ export default defineConfig({
     //   name: 'Google Chrome',
     //   use: { ...devices['Desktop Chrome'], channel: 'chrome' },
     // },
+    /* Test in viewport with different screen size */
+    //viewport : { width: 1280, height: 720 },
+    //to ignore SSL errors
+    // ignoreHTTPSErrors: true,
+    /*to set the access for geolocation*/
+    // permissions: ['geolocation'],
+  
   ],
 
   /* Run your local dev server before starting the tests */

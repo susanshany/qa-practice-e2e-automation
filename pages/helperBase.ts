@@ -1,4 +1,4 @@
-import { Locator,expect, Page } from '@playwright/test';
+import {type Locator,expect, type Page } from '@playwright/test';
 export class HelperBase {
     readonly page: Page;
     // Initialize the page object in the constructor

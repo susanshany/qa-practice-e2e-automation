@@ -109,6 +109,13 @@ and setthe project
 - Follow TypeScript best practices
 - Implement proper assertions
 
+## Cucumber integration
+install cucumber inside the project
+npm install --save-dev @cucumber/cucumber
+And install plugin called Cucumber full support
+And innstall 
+npm i --save-dev ts-node
+
 ## Best Practices
 
 1. Use Page Object Model for better maintainability

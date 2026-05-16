@@ -16,7 +16,7 @@ let pageManager: PageManager;
     pageManager = new PageManager(page);
   });
     // Test to validate that the form page is loaded
-    test(`@Regression Validate form page loaded`, async ({page}) => {
+    test(`@Regression @Smoke Validate form page loaded`, async ({page}) => {
         // Validate that the form home page is loaded
         await pageManager.formHome().validateFormHomePageLoaded();
     });
